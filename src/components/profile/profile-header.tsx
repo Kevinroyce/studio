@@ -1,10 +1,11 @@
 "use client";
 
+import * as React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Download, Github, Linkedin, Mail, Share2 } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Share2, Camera } from "lucide-react";
 
 type ProfileHeaderProps = {
   data: {
@@ -19,10 +20,16 @@ type ProfileHeaderProps = {
     };
     resumeUrl: string;
   };
+  onAvatarChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function ProfileHeader({ data }: ProfileHeaderProps) {
+export function ProfileHeader({ data, onAvatarChange }: ProfileHeaderProps) {
   const { toast } = useToast();
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleAvatarClick = () => {
+    fileInputRef.current?.click();
+  };
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -42,11 +49,26 @@ export function ProfileHeader({ data }: ProfileHeaderProps) {
 
   return (
     <Card className="p-6 md:p-8 shadow-lg">
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={onAvatarChange}
+        className="hidden"
+        accept="image/*"
+      />
       <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-        <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-primary" data-ai-hint="person">
-          <AvatarImage src={data.avatarUrl} alt={data.name} />
-          <AvatarFallback className="text-4xl">{data.avatarFallback}</AvatarFallback>
-        </Avatar>
+        <div
+          className="relative group cursor-pointer"
+          onClick={handleAvatarClick}
+        >
+          <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-primary" data-ai-hint="person">
+            <AvatarImage src={data.avatarUrl} alt={data.name} />
+            <AvatarFallback className="text-4xl">{data.avatarFallback}</AvatarFallback>
+          </Avatar>
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 flex items-center justify-center rounded-full transition-opacity duration-300">
+            <Camera className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </div>
+        </div>
         <div className="flex-grow text-center md:text-left">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground">{data.name}</h1>
           <h2 className="text-xl md:text-2xl text-primary font-semibold mt-1">{data.title}</h2>

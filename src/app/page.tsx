@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -11,7 +14,7 @@ import { ProfileHeader } from "@/components/profile/profile-header";
 import { ProfileSection } from "@/components/profile/profile-section";
 import { SkillBadge } from "@/components/profile/skill-badge";
 
-const profileData = {
+const initialProfileData = {
   name: "P.Arul Kevin Alex",
   title: "Full Stack Developer",
   avatarUrl: "https://placehold.co/128x128.png",
@@ -48,11 +51,29 @@ const profileData = {
 };
 
 export default function Home() {
+  const [profileData, setProfileData] = useState(initialProfileData);
+
+  const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          setProfileData((prevData) => ({
+            ...prevData,
+            avatarUrl: e.target.result as string,
+          }));
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="container mx-auto max-w-4xl p-4 md:p-8">
         <div className="space-y-8">
-          <ProfileHeader data={profileData} />
+          <ProfileHeader data={profileData} onAvatarChange={handleAvatarChange} />
 
           <ProfileSection title="About Me">
             <p className="text-muted-foreground leading-relaxed">
