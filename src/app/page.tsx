@@ -12,16 +12,16 @@ import { ProfileSection } from "@/components/profile/profile-section";
 import { SkillBadge } from "@/components/profile/skill-badge";
 
 const profileData = {
-  name: "Alex Kevin",
+  name: "P.Arul Kevin Alex",
   title: "Full Stack Developer",
   avatarUrl: "https://placehold.co/128x128.png",
   avatarFallback: "AK",
   contact: {
-    email: "alex.kevin@example.com",
-    linkedin: "linkedin.com/in/alex-kevin-128ab5306",
-    github: "github.com/alexkevin",
+    email: "arulkevinalex52@gmail.com",
+    linkedin: "www.linkedin.com/in/alex-kevin-128ab5306",
+    github: "github.com/AK-Alex216",
   },
-  resumeUrl: "/alex-kevin-resume.pdf",
+  resumeUrl: "/PArulKevinAlex-resume.pdf",
   about: "A results-driven Full Stack Developer with a knack for building beautiful and functional web applications. Proficient in modern JavaScript frameworks and passionate about clean code and user-centric design.",
   experience: [
     {
