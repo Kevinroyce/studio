@@ -12,39 +12,39 @@ import { ProfileSection } from "@/components/profile/profile-section";
 import { SkillBadge } from "@/components/profile/skill-badge";
 
 const profileData = {
-  name: "Alex Doe",
-  title: "Senior Software Engineer",
+  name: "Alex Kevin",
+  title: "Full Stack Developer",
   avatarUrl: "https://placehold.co/128x128.png",
-  avatarFallback: "AD",
+  avatarFallback: "AK",
   contact: {
-    email: "alex.doe@example.com",
-    linkedin: "linkedin.com/in/alexdoe",
-    github: "github.com/alexdoe",
+    email: "alex.kevin@example.com",
+    linkedin: "linkedin.com/in/alex-kevin-128ab5306",
+    github: "github.com/alexkevin",
   },
-  resumeUrl: "/alex-doe-resume.pdf",
-  about: "A passionate Senior Software Engineer with over 10 years of experience in developing scalable web applications. I specialize in front-end technologies and am dedicated to creating intuitive and performant user interfaces. I'm always eager to learn new things and take on challenging projects.",
+  resumeUrl: "/alex-kevin-resume.pdf",
+  about: "A results-driven Full Stack Developer with a knack for building beautiful and functional web applications. Proficient in modern JavaScript frameworks and passionate about clean code and user-centric design.",
   experience: [
     {
-      company: "Tech Solutions Inc.",
-      role: "Senior Software Engineer",
-      period: "Jan 2018 - Present",
-      description: "Leading the development of the main customer-facing application, architecting new features, and mentoring junior developers. Specialized in React, TypeScript, and Next.js.",
+      company: "Web Weavers LLC",
+      role: "Full Stack Developer",
+      period: "Feb 2020 - Present",
+      description: "Building and maintaining client websites and web applications using React, Node.js, and GraphQL. Collaborating with designers and project managers to create seamless user experiences from concept to deployment.",
     },
     {
-      company: "Innovate Co.",
-      role: "Software Engineer",
-      period: "Jun 2014 - Dec 2017",
-      description: "Developed and maintained features for a large-scale e-commerce platform. Worked with Angular and Node.js, and contributed to improving code quality and test coverage.",
+      company: "Code Crafters",
+      role: "Junior Web Developer",
+      period: "Jul 2018 - Jan 2020",
+      description: "Assisted in the development of various web projects, focusing on front-end tasks with HTML, CSS, and JavaScript. Gained experience with version control (Git) and agile development methodologies.",
     },
   ],
   education: [
     {
-      institution: "State University",
-      degree: "B.S. in Computer Science",
-      period: "2010 - 2014",
+      institution: "Tech Institute",
+      degree: "Associate Degree in Web Development",
+      period: "2016 - 2018",
     },
   ],
-  skills: ["React", "TypeScript", "Next.js", "Node.js", "JavaScript", "HTML & CSS", "Tailwind CSS", "GraphQL", "CI/CD", "Agile Methodologies"],
+  skills: ["React", "Node.js", "GraphQL", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Git", "REST APIs", "SQL", "MongoDB"],
 };
 
 export default function Home() {
