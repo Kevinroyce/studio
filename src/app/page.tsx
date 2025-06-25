@@ -39,9 +39,9 @@ const profileData = {
   ],
   education: [
     {
-      institution: "Tech Institute",
-      degree: "Associate Degree in Web Development",
-      period: "2016 - 2018",
+      institution: "University of Engineering",
+      degree: "B.E. Computer Science and Engineering",
+      period: "Pursuing",
     },
   ],
   skills: ["React", "Node.js", "GraphQL", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Git", "REST APIs", "SQL", "MongoDB"],
