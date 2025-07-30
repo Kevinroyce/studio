@@ -42,7 +42,7 @@ const initialProfileData = {
   ],
   education: [
     {
-      institution: "University of Engineering",
+      institution: "Arifa Institute of Technology",
       degree: "B.E. Computer Science and Engineering",
       period: "Pursuing",
     },
