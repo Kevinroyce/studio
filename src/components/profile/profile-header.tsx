@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Download, Github, Linkedin, Mail, Share2, Camera } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Share2, Camera, Upload } from "lucide-react";
 
 type ProfileHeaderProps = {
   data: {
@@ -21,14 +21,20 @@ type ProfileHeaderProps = {
     resumeUrl: string;
   };
   onAvatarChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onResumeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function ProfileHeader({ data, onAvatarChange }: ProfileHeaderProps) {
+export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileHeaderProps) {
   const { toast } = useToast();
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const avatarFileInputRef = React.useRef<HTMLInputElement>(null);
+  const resumeFileInputRef = React.useRef<HTMLInputElement>(null);
 
   const handleAvatarClick = () => {
-    fileInputRef.current?.click();
+    avatarFileInputRef.current?.click();
+  };
+
+  const handleUploadResumeClick = () => {
+    resumeFileInputRef.current?.click();
   };
 
   const handleShare = () => {
@@ -51,10 +57,17 @@ export function ProfileHeader({ data, onAvatarChange }: ProfileHeaderProps) {
     <Card className="p-6 md:p-8 shadow-lg">
       <input
         type="file"
-        ref={fileInputRef}
+        ref={avatarFileInputRef}
         onChange={onAvatarChange}
         className="hidden"
         accept="image/*"
+      />
+      <input
+        type="file"
+        ref={resumeFileInputRef}
+        onChange={onResumeChange}
+        className="hidden"
+        accept=".pdf,.doc,.docx"
       />
       <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
         <div
@@ -88,11 +101,15 @@ export function ProfileHeader({ data, onAvatarChange }: ProfileHeaderProps) {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 mt-4 md:mt-0 w-full sm:w-auto">
-          <Button asChild size="lg" className="w-full md:w-auto">
-            <a href={data.resumeUrl} download>
+          <Button asChild size="lg" className="w-full md:w-auto" disabled={!data.resumeUrl}>
+            <a href={data.resumeUrl} download="resume">
               <Download className="mr-2 h-4 w-4" />
-              resumw
+              Download Resume
             </a>
+          </Button>
+          <Button variant="outline" size="lg" onClick={handleUploadResumeClick} className="w-full md:w-auto">
+            <Upload className="mr-2 h-4 w-4" />
+            Upload Resume
           </Button>
           <Button variant="outline" size="lg" onClick={handleShare} className="w-full md:w-auto">
             <Share2 className="mr-2 h-4 w-4" />

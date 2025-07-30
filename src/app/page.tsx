@@ -24,7 +24,7 @@ const initialProfileData = {
     linkedin: "www.linkedin.com/in/alex-kevin-128ab5306",
     github: "github.com/AK-Alex216",
   },
-  resumeUrl: "/PArulKevinAlex-resume.pdf",
+  resumeUrl: "",
   about: "A results-driven Full Stack Developer with a knack for building beautiful and functional web applications. Proficient in modern JavaScript frameworks and passionate about clean code and user-centric design.",
   experience: [
     {
@@ -69,11 +69,28 @@ export default function Home() {
     }
   };
 
+  const handleResumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          setProfileData((prevData) => ({
+            ...prevData,
+            resumeUrl: e.target.result as string,
+          }));
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="container mx-auto max-w-4xl p-4 md:p-8">
         <div className="space-y-8">
-          <ProfileHeader data={profileData} onAvatarChange={handleAvatarChange} />
+          <ProfileHeader data={profileData} onAvatarChange={handleAvatarChange} onResumeChange={handleResumeChange} />
 
           <ProfileSection title="About Me">
             <p className="text-muted-foreground leading-relaxed">
