@@ -101,12 +101,6 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
           </div>
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 mt-4 md:mt-0 w-full sm:w-auto">
-          <Button asChild size="lg" className="w-full md:w-auto" disabled={!data.resumeUrl}>
-            <a href={data.resumeUrl} download="resume">
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </a>
-          </Button>
           <Button variant="outline" size="lg" onClick={handleUploadResumeClick} className="w-full md:w-auto">
             <Upload className="mr-2 h-4 w-4" />
             Upload Resume
