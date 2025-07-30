@@ -91,7 +91,6 @@ export default function Home() {
             ...prevData,
             resumeUrl: resumeDataUrl,
           }));
-          window.open(resumeDataUrl, '_blank');
         }
       };
       reader.readAsDataURL(file);
