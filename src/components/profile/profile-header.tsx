@@ -105,6 +105,14 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
             <Upload className="mr-2 h-4 w-4" />
             Upload Resume
           </Button>
+          {data.resumeUrl && (
+            <Button asChild variant="outline" size="lg" className="w-full md:w-auto">
+              <a href={data.resumeUrl} download="resume">
+                <Download className="mr-2 h-4 w-4" />
+                Download Resume
+              </a>
+            </Button>
+          )}
           <Button variant="outline" size="lg" onClick={handleShare} className="w-full md:w-auto">
             <Share2 className="mr-2 h-4 w-4" />
             Share Profile
