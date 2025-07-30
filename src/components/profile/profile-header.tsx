@@ -91,7 +91,7 @@ export function ProfileHeader({ data, onAvatarChange }: ProfileHeaderProps) {
           <Button asChild size="lg" className="w-full md:w-auto">
             <a href={data.resumeUrl} download>
               <Download className="mr-2 h-4 w-4" />
-              Download Resume
+              resumw
             </a>
           </Button>
           <Button variant="outline" size="lg" onClick={handleShare} className="w-full md:w-auto">

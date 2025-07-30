@@ -47,7 +47,7 @@ const initialProfileData = {
       period: "Pursuing",
     },
   ],
-  skills: ["React", "Node.js", "GraphQL", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Git", "REST APIs", "SQL", "MongoDB"],
+  skills: [ "python","JavaScript", "HTML5", "Git", "SQL","c"],
 };
 
 export default function Home() {
