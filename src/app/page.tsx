@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -53,6 +53,16 @@ const initialProfileData = {
 export default function Home() {
   const [profileData, setProfileData] = useState(initialProfileData);
 
+  useEffect(() => {
+    const savedResume = localStorage.getItem('resumeUrl');
+    if (savedResume) {
+      setProfileData((prevData) => ({
+        ...prevData,
+        resumeUrl: savedResume,
+      }));
+    }
+  }, []);
+
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -72,12 +82,19 @@ export default function Home() {
   const handleResumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
-      const fileUrl = URL.createObjectURL(file);
-      setProfileData((prevData) => ({
-        ...prevData,
-        resumeUrl: fileUrl,
-      }));
-       window.open(fileUrl, '_blank');
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          const resumeDataUrl = e.target.result as string;
+          localStorage.setItem('resumeUrl', resumeDataUrl);
+          setProfileData((prevData) => ({
+            ...prevData,
+            resumeUrl: resumeDataUrl,
+          }));
+          window.open(resumeDataUrl, '_blank');
+        }
+      };
+      reader.readAsDataURL(file);
     }
   };
 
