@@ -72,16 +72,12 @@ export default function Home() {
   const handleResumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (e.target?.result) {
-          setProfileData((prevData) => ({
-            ...prevData,
-            resumeUrl: e.target.result as string,
-          }));
-        }
-      };
-      reader.readAsDataURL(file);
+      const fileUrl = URL.createObjectURL(file);
+      setProfileData((prevData) => ({
+        ...prevData,
+        resumeUrl: fileUrl,
+      }));
+       window.open(fileUrl, '_blank');
     }
   };
 

@@ -53,6 +53,13 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
     });
   };
 
+  const handleViewResume = () => {
+    if (data.resumeUrl) {
+      window.open(data.resumeUrl, '_blank');
+    }
+  };
+
+
   return (
     <Card className="p-6 md:p-8 shadow-lg">
       <input
@@ -102,11 +109,9 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 mt-4 md:mt-0 w-full sm:w-auto">
           {data.resumeUrl ? (
-            <Button asChild variant="outline" size="lg" className="w-full md:w-auto">
-              <a href={data.resumeUrl} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="lg" onClick={handleViewResume} className="w-full md:w-auto">
                 <Eye className="mr-2 h-4 w-4" />
                 View Resume
-              </a>
             </Button>
           ) : (
             <Button variant="outline" size="lg" onClick={handleUploadResumeClick} className="w-full md:w-auto">
