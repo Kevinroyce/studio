@@ -11,7 +11,7 @@ export function EducationItem({ institution, degree, period, place }: EducationI
       <div>
         <h3 className="font-semibold">{degree}</h3>
         <p className="text-primary">{institution}</p>
-        {place && <p className="text-sm text-muted-foreground">{place}</p>}
+        {place && <p className="text-sm text-primary/80">{place}</p>}
       </div>
       <p className="text-sm text-muted-foreground text-left sm:text-right shrink-0">{period}</p>
     </div>
