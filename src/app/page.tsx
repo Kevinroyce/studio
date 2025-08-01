@@ -28,21 +28,22 @@ const initialProfileData = {
   about: "A results-driven Full Stack Developer with a knack for building beautiful and functional web applications. Proficient in modern JavaScript frameworks and passionate about clean code and user-centric design.",
   experience: [
     {
-      company: "Web Weavers LLC",
+      company: "web weaver LLC",
       role: "Full Stack Developer",
-      period: "Feb 2020 - Present",
+      period: "2021-Present",
       description: "Building and maintaining client websites and web applications using React, Node.js, and GraphQL. Collaborating with designers and project managers to create seamless user experiences from concept to deployment.",
     },
     {
       company: "Code Crafters",
       role: "Junior Web Developer",
-      period: "Jul 2018 - Jan 2020",
+      period: "2019-2021",
       description: "Assisted in the development of various web projects, focusing on front-end tasks with HTML, CSS, and JavaScript. Gained experience with version control (Git) and agile development methodologies.",
     },
   ],
   education: [
     {
       institution: "Arifa Institute of Technology",
+      place: "Esanoor",
       degree: "B.E. Computer Science and Engineering",
       period: "Pursuing",
     },
