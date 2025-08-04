@@ -119,10 +119,6 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
           </div>
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 mt-4 md:mt-0 w-full sm:w-auto">
-          <Button variant="outline" size="lg" onClick={handleResumeUploadClick} className="w-full sm:w-auto">
-              <Upload className="mr-2 h-4 w-4" />
-              Upload Resume
-          </Button>
           {data.resumeUrl && (
              <div className="flex flex-col sm:flex-row md:flex-col gap-3">
                 <Button variant="outline" size="lg" onClick={handleViewResume} className="w-full sm:w-auto">

@@ -30,13 +30,11 @@ const initialProfileData = {
     {
       company: "web weaver LLC",
       role: "Full Stack Developer",
-      period: "2021-Present",
       description: "Building and maintaining client websites and web applications using React, Node.js, and GraphQL. Collaborating with designers and project managers to create seamless user experiences from concept to deployment.",
     },
     {
       company: "Code Crafters",
       role: "Junior Web Developer",
-      period: "2019-2021",
       description: "Assisted in the development of various web projects, focusing on front-end tasks with HTML, CSS, and JavaScript. Gained experience with version control (Git) and agile development methodologies.",
     },
   ],
