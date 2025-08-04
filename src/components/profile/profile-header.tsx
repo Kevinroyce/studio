@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Download, Github, Linkedin, Mail, Share2, Camera, Upload, Eye } from "lucide-react";
+import { Github, Linkedin, Mail, Share2, Camera, Eye } from "lucide-react";
 
 type ProfileHeaderProps = {
   data: {
@@ -32,10 +32,6 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
   const handleAvatarClick = () => {
     avatarFileInputRef.current?.click();
   };
-
-  const handleResumeUploadClick = () => {
-    resumeFileInputRef.current?.click();
-  }
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -120,10 +116,6 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
           </div>
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 mt-4 md:mt-0 w-full sm:w-auto">
-         <Button variant="outline" size="lg" onClick={handleResumeUploadClick} className="w-full sm:w-auto">
-            <Upload className="mr-2 h-4 w-4" />
-            Upload Resume
-          </Button>
           {data.resumeUrl && (
              <div className="flex flex-col sm:flex-row md:flex-col gap-3">
                 <Button variant="outline" size="lg" onClick={handleViewResume} className="w-full sm:w-auto">
