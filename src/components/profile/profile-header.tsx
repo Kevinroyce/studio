@@ -59,18 +59,6 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
     }
   };
 
-  const handleDownloadResume = () => {
-    if (data.resumeUrl) {
-      const link = document.createElement('a');
-      link.href = data.resumeUrl;
-      link.download = 'resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  };
-
-
   return (
     <Card className="p-6 md:p-8 shadow-lg">
       <input
@@ -124,10 +112,6 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
                 <Button variant="outline" size="lg" onClick={handleViewResume} className="w-full sm:w-auto">
                     <Eye className="mr-2 h-4 w-4" />
                     View Resume
-                </Button>
-                <Button variant="outline" size="lg" onClick={handleDownloadResume} className="w-full sm:w-auto">
-                    <Download className="mr-2 h-4 w-4" />
-                    Download
                 </Button>
             </div>
           )}
