@@ -55,7 +55,20 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
 
   const handleViewResume = () => {
     if (data.resumeUrl) {
-      window.open(data.resumeUrl, '_blank');
+      if (data.resumeUrl.startsWith('data:')) {
+        const byteString = atob(data.resumeUrl.split(',')[1]);
+        const mimeString = data.resumeUrl.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], { type: mimeString });
+        const url = URL.createObjectURL(blob);
+        window.open(url, '_blank');
+      } else {
+         window.open(data.resumeUrl, '_blank');
+      }
     }
   };
 
@@ -107,6 +120,10 @@ export function ProfileHeader({ data, onAvatarChange, onResumeChange }: ProfileH
           </div>
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 mt-4 md:mt-0 w-full sm:w-auto">
+         <Button variant="outline" size="lg" onClick={handleResumeUploadClick} className="w-full sm:w-auto">
+            <Upload className="mr-2 h-4 w-4" />
+            Upload Resume
+          </Button>
           {data.resumeUrl && (
              <div className="flex flex-col sm:flex-row md:flex-col gap-3">
                 <Button variant="outline" size="lg" onClick={handleViewResume} className="w-full sm:w-auto">
